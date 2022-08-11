@@ -24,7 +24,11 @@ public class Time {
         BufferedReader br = new BufferedReader(reader);
         String linha = br.readLine();
 		Jogador[] j = new Jogador[11];
+<<<<<<< HEAD
 		//pegas os jogadores do arquivo e adiciona no array
+=======
+		
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 		for(int i = 0; i < 11; i++) {
 			j[i]= new Jogador(linha,1,0);
 			jogadores.add(j[i]);
@@ -32,26 +36,42 @@ public class Time {
 		}
 		br.close();
 	}
+<<<<<<< HEAD
 	// lista dos os jogadores do time
 	public void mostraJogadores() {
+=======
+	public void timee() {	
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 		for(int i = 0; i < 11; i++) {
 			System.out.println(jogadores.get(i).getNome());
 		}
 	}
+<<<<<<< HEAD
 	// exibe todos jogadores que fizeram gols
 	public void fezGol() {
 		for(int i = 0; i < 11; i++) {
 			if(jogadores.get(i).getGols() > 0) {
+=======
+	public void fezGol() {
+		for(int i = 0; i < 11; i++) {
+			if(jogadores.get(i).getGols()>0) {
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 				System.out.println(jogadores.get(i).getNome() +" Gols: "+jogadores.get(i).getGols());
 			}
 		}
 	}
+<<<<<<< HEAD
 // exibe todas as partidas
 	public void partidasJogadas() {
+=======
+
+	public void partiidas() {
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 		for(int i = 0; i < partidas.size();i++) {			
 			partidas.get(i).jogou();			
 		}
 	}
+<<<<<<< HEAD
 	// exibe as vitorias, derrotas e empates do time
 	public void estatisticas(){
 		System.out.print("\nV / D / E\n");
@@ -59,6 +79,9 @@ public class Time {
 	}
 
 
+=======
+	
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 	public String getNome() {
 		return nome;
 	}

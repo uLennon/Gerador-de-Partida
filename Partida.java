@@ -19,7 +19,11 @@ public class Partida {
 		this.jogadorFora = jogadorFora;
 		
 	}
+<<<<<<< HEAD
 	//exibe o resultado de uma partida
+=======
+	
+>>>>>>> 628cb6fac2c4feee75bc9c9de3fa2ed9fe717dc4
 	public void jogou() {
 		System.out.println("\nData"+" "+data+"\n"+casa.getNome()+" "+golCasa+"x"+golFora+" "+fora.getNome());
 	
