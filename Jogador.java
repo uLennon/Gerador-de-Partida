@@ -1,11 +1,10 @@
-
 public class Jogador {
 	private String nome;
 	private int forca;
 	private int gols;
 	private int gol;
-	
-	
+
+
 	public Jogador(String nome, int forca, int gols) {
 		this.forca = forca;
 		this.nome = nome;
@@ -34,7 +33,5 @@ public class Jogador {
 	}
 	public void setGol(int gol) {
 		this.gol = gol;
-	}	
-	
-	
+	}
 }
