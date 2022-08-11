@@ -13,7 +13,5 @@ public class Main {
 		Jogo jogo = new Jogo();
 		jogo.adicionaJogos(time[0],time[1],2);
 		time[0].partidasJogadas();
-		time[0].estatisticas();
-
 	}
 }
