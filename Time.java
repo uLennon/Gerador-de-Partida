@@ -10,22 +10,16 @@ public class Time {
 	private int vitoria, derrota,empate;
 	private ArrayList<Partida> partidas;
 	private int forca;
+	private int pontuacao;
+
 
 	public Time(String nome) {
 		this.nome = nome;
 		this.jogadores = new ArrayList<Jogador>();
 		this.partidas = new ArrayList<Partida>();
 		this.forca = 11;
+		this.pontuacao = 0;
 	}
-
-	public int getForca() {
-		return forca;
-	}
-
-	public void setForca(int forca) {
-		this.forca = forca;
-	}
-
 	public void gera(String n)throws IOException {
 
 		FileInputStream stream = new FileInputStream(n);
@@ -115,4 +109,21 @@ public class Time {
 	public void setEmpate(int empate) {
 		this.empate = empate;
 	}
+
+	public int getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+
+	public int getForca() {
+		return forca;
+	}
+
+	public void setForca(int forca) {
+		this.forca = forca;
+	}
+
 }

@@ -27,7 +27,7 @@ public class Partida {
 			System.out.println(j.getNome());
 		}
 		for(Jogador j : jogadorFora) {
-			System.out.println("\t   "+j.getNome());
+			System.out.println("\t       "+j.getNome());
 		}
 	}
 }

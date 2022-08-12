@@ -16,10 +16,9 @@ public class Main {
 		time[3].gera("/home/zin/IdeaProjects/Simulador/src/d.txt");
 
 		Jogo jogo = new Jogo();
-		jogo.adicionaJogos(time[0],time[1],2);
+		jogo.adicionaJogos(time[0],time[1],20);
 		jogo.adicionaJogos(time[2],time[3],2);
 		time[0].partidasJogadas();
-		time[2].partidasJogadas();
 
 	}
 }

@@ -33,14 +33,18 @@ public class Jogo {
 		if (getGolCasa() > getGolfora()) {
 			casa.setVitoria(casa.getVitoria() + 1);
 			fora.setDerrota(fora.getDerrota() + 1);
+			casa.setPontuacao(casa.getPontuacao()+3);
 
 		} else if (getGolfora() > getGolCasa()) {
 			fora.setVitoria(fora.getVitoria() + 1);
 			casa.setDerrota(casa.getDerrota() + 1);
+			fora.setPontuacao(fora.getPontuacao()+3);
 
 		} else {
 			casa.setEmpate(casa.getEmpate() + 1);
 			fora.setEmpate(fora.getEmpate() + 1);
+			casa.setPontuacao(casa.getPontuacao()+1);
+			fora.setPontuacao(fora.getPontuacao()+1);
 		}
 	}
 
