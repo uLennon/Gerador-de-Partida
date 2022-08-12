@@ -31,7 +31,9 @@ public class Jogo {
 				golCasa += 1;
 			} else if (probabilidadeDeGols == 0) {
 				int probabilidadeDeJogador = rand.nextInt(11);
-				while (probabilidadeDeJogador == 0)
+				while (probabilidadeDeJogador == 0) {
+					probabilidadeDeJogador = rand.nextInt(11);
+				}
 				
 				adicionaGol(fora,probabilidadeDeJogador);
 				adicionaGols(fora, probabilidadeDeJogador);
