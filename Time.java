@@ -10,7 +10,6 @@ public class Time {
 	private int vitoria, derrota,empate;
 	private ArrayList<Partida> partidas;
 
-
 	public Time(String nome) {
 		this.nome = nome;
 		this.jogadores = new ArrayList<Jogador>();
@@ -57,8 +56,8 @@ public class Time {
 		System.out.print("\nV / D / E\n");
 		System.out.print(getVitoria()+"   "+getDerrota()+"   "+getEmpate());
 	}
-
-
+	
+	
 	public String getNome() {
 		return nome;
 	}
