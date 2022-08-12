@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Time {
+public class Time implements Comparable<Time>{
 	private String nome;
 	private ArrayList<Jogador> jogadores;
 	private int vitoria, derrota,empate;
@@ -126,4 +126,21 @@ public class Time {
 		this.forca = forca;
 	}
 
+	@Override
+	public int compareTo(Time outroTime) {
+			if(this.pontuacao>outroTime.getPontuacao()){
+				return -1;
+			}
+		if(this.pontuacao<outroTime.getPontuacao()){
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		if(pontuacao<10) return  nome +"  " + pontuacao +"    "+ this.getVitoria() +" "+ this.getDerrota() + " "+this.getEmpate();
+
+		return  nome +"  " + pontuacao +"   "+ this.getVitoria() +" "+ this.getDerrota()+" " + this.getEmpate();
+	}
 }

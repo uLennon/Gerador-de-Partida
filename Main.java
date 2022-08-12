@@ -1,24 +1,33 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		Time [] time = new Time[4];
-		time[0] = new Time("Bayern");
-		time[1] = new Time("PSG");
-		time[2] = new Time("Real Madrid");
-		time[3] = new Time("Ajax");
+
+		ArrayList<Time> time = new ArrayList<>();
+
+		time.add(new Time("Bayern      "));
+		time.add(new Time("PSG         "));
+		time.add(new Time("Real Madrid "));
+		time.add(new Time("Ajax        "));
 
 		// adicionar o caminho do aquivo txt entre as ""
-		time[0].gera("/home/zin/IdeaProjects/Simulador/src/a.txt");
-		time[1].gera("/home/zin/IdeaProjects/Simulador/src/b.txt");
-		time[2].gera("/home/zin/IdeaProjects/Simulador/src/c.txt");
-		time[3].gera("/home/zin/IdeaProjects/Simulador/src/d.txt");
+		time.get(0).gera("/home/zin/IdeaProjects/Simulador/src/a.txt");
+		time.get(1).gera("/home/zin/IdeaProjects/Simulador/src/b.txt");
+		time.get(2).gera("/home/zin/IdeaProjects/Simulador/src/c.txt");
+		time.get(3).gera("/home/zin/IdeaProjects/Simulador/src/d.txt");
 
 		Jogo jogo = new Jogo();
-		jogo.adicionaJogos(time[0],time[1],20);
-		jogo.adicionaJogos(time[2],time[3],2);
-		time[0].partidasJogadas();
+		jogo.adicionaJogos(time.get(0),time.get(1),2);
+		jogo.adicionaJogos(time.get(0),time.get(2),2);
+		jogo.adicionaJogos(time.get(0),time.get(3),2);
+		jogo.adicionaJogos(time.get(1),time.get(2),2);
+		jogo.adicionaJogos(time.get(1),time.get(3),2);
+		jogo.adicionaJogos(time.get(2),time.get(3),2);
+
+		Campeonato camp = new Campeonato(time);
+		camp.tabela();
 
 	}
 }
