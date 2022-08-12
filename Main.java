@@ -12,8 +12,8 @@ public class Main {
 		time[1].gera("C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projeto Lennon\\Gerador-de-Partida/b.txt");
 
 		Jogo jogo = new Jogo();
-		jogo.adicionaJogos(time[0],time[1],20);
-		//time[0].partidasJogadas();
+		jogo.adicionaJogos(time[0],time[1],10);
+		time[0].partidasJogadas();
 		System.out.println(time[0].getForca());
 		System.out.println(time[1].getForca());
 	}

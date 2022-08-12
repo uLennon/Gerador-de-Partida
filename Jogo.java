@@ -16,30 +16,14 @@ public class Jogo {
 
 		while (cont < 5) {
 			probabilidadeDeGols = rand.nextInt(4);
+			
 			if (probabilidadeDeGols == 1) {
-
-				int probabilidadeDeJogador = rand.nextInt(11);
-				while (probabilidadeDeJogador == 0) {
-					probabilidadeDeJogador = rand.nextInt(11);
-
-				}
-				adicionaGol(casa, probabilidadeDeJogador);
-				adicionaGols(casa, probabilidadeDeJogador);
-
-				jogadorCasa.add(casa.getJogadores().get(probabilidadeDeJogador));
 				
-				golCasa += 1;
+				golCasa += placar(rand, casa, jogadorCasa);
+				
 			} else if (probabilidadeDeGols == 0) {
-				int probabilidadeDeJogador = rand.nextInt(11);
-				while (probabilidadeDeJogador == 0) {
-					probabilidadeDeJogador = rand.nextInt(11);
-				}
 				
-				adicionaGol(fora,probabilidadeDeJogador);
-				adicionaGols(fora, probabilidadeDeJogador);
-				
-				jogadorFora.add(fora.getJogadores().get(probabilidadeDeJogador));
-				golFora += 1;
+				golFora += placar(rand, fora, jogadorFora);
 			}
 			cont++;
 		}
@@ -100,5 +84,19 @@ public class Jogo {
 		}
 		
 	}
-	
+	public int placar(Random rand, Time time, ArrayList<Jogador> jogador) {
+		
+		int probabilidadeDeJogador = rand.nextInt(11);
+		
+		while (probabilidadeDeJogador == 0) {
+			probabilidadeDeJogador = rand.nextInt(11);
+
+		}
+		adicionaGol(time, probabilidadeDeJogador);
+		adicionaGols(time, probabilidadeDeJogador);
+
+		jogador.add(time.getJogadores().get(probabilidadeDeJogador));
+		
+		return 1;
+		}
 }
