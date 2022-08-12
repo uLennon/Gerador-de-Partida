@@ -15,6 +15,6 @@ public class Main {
 		jogo.adicionaJogos(time[0],time[1],2);
 		time[0].partidasJogadas();
 		System.out.println("FIM!");
-	
+		
 	}
 }

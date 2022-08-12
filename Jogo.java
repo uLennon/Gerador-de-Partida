@@ -27,6 +27,7 @@ public class Jogo {
 				adicionaGols(casa, probabilidadeDeJogador);
 
 				jogadorCasa.add(casa.getJogadores().get(probabilidadeDeJogador));
+				
 				golCasa += 1;
 			} else if (probabilidadeDeGols == 0) {
 				int probabilidadeDeJogador = rand.nextInt(11);
@@ -82,6 +83,7 @@ public class Jogo {
 	public void adicionaGol(Time time, int num) {
 		time.getJogadores().get(num).setGol(time.getJogadores().get(num).getGol() + 1);
 		time.getJogadores().get(num).setForca(time.getJogadores().get(num).getForca() + 1);
+		time.setForca(time.getForca()+1);
 	}
 
 	public void adicionaGols(Time time, int num) {
@@ -94,7 +96,7 @@ public class Jogo {
 			jogo[i] = new Jogo();
 			jogo[i].partida(casa, fora);
 		}
-	
+		
 	}
 	
 }

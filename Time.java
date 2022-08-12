@@ -9,11 +9,21 @@ public class Time {
 	private ArrayList<Jogador> jogadores;
 	private int vitoria, derrota,empate;
 	private ArrayList<Partida> partidas;
+	private int forca;
 
 	public Time(String nome) {
 		this.nome = nome;
 		this.jogadores = new ArrayList<Jogador>();
 		this.partidas = new ArrayList<Partida>();
+		this.forca = 11;
+	}
+
+	public int getForca() {
+		return forca;
+	}
+
+	public void setForca(int forca) {
+		this.forca = forca;
 	}
 
 	public void gera(String n)throws IOException {
