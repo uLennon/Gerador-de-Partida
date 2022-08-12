@@ -9,61 +9,52 @@ public class Jogo {
 	private ArrayList<Jogador> jogadorFora;
 
 	public void partida(Time casa, Time fora) {
-		int probabilidadeDeGols, cont = 0;
+		int chanceDeGol, probabilidadeDeGol = 0;
 		jogadorCasa = new ArrayList<Jogador>();
 		jogadorFora = new ArrayList<Jogador>();
 		Random rand = new Random();
 
-		while (cont < 5) {
-			probabilidadeDeGols = rand.nextInt(4);
+		while (probabilidadeDeGol < 5) {
+			chanceDeGol = rand.nextInt(4);
 			
-			if (probabilidadeDeGols == 1) {
-				
+			if (chanceDeGol == 1) {
 				golCasa += placar(rand, casa, jogadorCasa);
 				
-			} else if (probabilidadeDeGols == 0) {
-				
+			} else if (chanceDeGol == 0) {
 				golFora += placar(rand, fora, jogadorFora);
 			}
-			cont++;
+			probabilidadeDeGol++;
 		}
-		if (golCasa > golFora) {
+		resultadoDaPartida(casa,fora);
+		armazenaPartida(casa,fora,rand);
+	}
+	// define quem ganhou, perdeu ou empatou
+	public void resultadoDaPartida(Time casa, Time fora){
+		if (getGolCasa() > getGolfora()) {
 			casa.setVitoria(casa.getVitoria() + 1);
 			fora.setDerrota(fora.getDerrota() + 1);
-		} else if (golFora > golCasa) {
+
+		} else if (getGolfora() > getGolCasa()) {
 			fora.setVitoria(fora.getVitoria() + 1);
 			casa.setDerrota(casa.getDerrota() + 1);
+
 		} else {
 			casa.setEmpate(casa.getEmpate() + 1);
 			fora.setEmpate(fora.getEmpate() + 1);
 		}
+	}
 
+	// guarda o placar com o resultado final da partida
+	public void armazenaPartida(Time casa, Time fora, Random rand){
 		int dia, mes;
 		dia = rand.nextInt(30) + 1;
 		mes = rand.nextInt(12) + 1;
 
-		String placar = dia + "/" + mes;
-		partida = new Partida(placar, casa, fora, golCasa, golFora, jogadorCasa, jogadorFora);
+		String dataPartida = dia + "/" + mes;
+		partida = new Partida(dataPartida, casa, fora, golCasa, golFora, jogadorCasa, jogadorFora);
 
 		casa.getPartidas().add(partida);
 		fora.getPartidas().add(partida);
-
-	}
-
-	public int getGolCasa() {
-		return golCasa;
-	}
-
-	public void setGolCasa(int golCasa) {
-		this.golCasa = golCasa;
-	}
-
-	public int getGolfora() {
-		return golFora;
-	}
-
-	public void setGolFora(int golFora) {
-		this.golFora = golFora;
 	}
 
 	public void adicionaGol(Time time, int num) {
@@ -82,21 +73,35 @@ public class Jogo {
 			jogo[i] = new Jogo();
 			jogo[i].partida(casa, fora);
 		}
-		
 	}
 	public int placar(Random rand, Time time, ArrayList<Jogador> jogador) {
 		
 		int probabilidadeDeJogador = rand.nextInt(11);
-		
 		while (probabilidadeDeJogador == 0) {
-			probabilidadeDeJogador = rand.nextInt(11);
+				probabilidadeDeJogador = rand.nextInt(11);
 
 		}
 		adicionaGol(time, probabilidadeDeJogador);
 		adicionaGols(time, probabilidadeDeJogador);
-
 		jogador.add(time.getJogadores().get(probabilidadeDeJogador));
 		
 		return 1;
-		}
+	}
+	public int getGolCasa() {
+		return golCasa;
+	}
+
+	public void setGolCasa(int golCasa) {
+		this.golCasa = golCasa;
+	}
+
+	public int getGolfora() {
+		return golFora;
+	}
+
+	public void setGolFora(int golFora) {
+		this.golFora = golFora;
+	}
+
+
 }

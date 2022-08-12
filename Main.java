@@ -8,13 +8,12 @@ public class Main {
 		time[1] = new Time("PSG");
 
 		// adicionar o caminho do aquivo txt entre as ""
-		time[0].gera("C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projeto Lennon\\Gerador-de-Partida/a.txt");
-		time[1].gera("C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Projeto Lennon\\Gerador-de-Partida/b.txt");
+		time[0].gera("/home/zin/IdeaProjects/Simulador/src/a.txt");
+		time[1].gera("/home/zin/IdeaProjects/Simulador/src/b.txt");
 
 		Jogo jogo = new Jogo();
 		jogo.adicionaJogos(time[0],time[1],10);
 		time[0].partidasJogadas();
-		System.out.println(time[0].getForca());
-		System.out.println(time[1].getForca());
+
 	}
 }
