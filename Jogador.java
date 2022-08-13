@@ -2,8 +2,6 @@ public class Jogador implements Comparable<Jogador> {
 	private String nome;
 	private int forca;
 	private int gols;
-	private int gol;
-
 
 	public Jogador(String nome, int forca, int gols) {
 		this.forca = forca;
@@ -27,12 +25,6 @@ public class Jogador implements Comparable<Jogador> {
 	}
 	public void setGols(int gols) {
 		this.gols = gols;
-	}
-	public int getGol() {
-		return gol;
-	}
-	public void setGol(int gol) {
-		this.gol = gol;
 	}
 
 	@Override

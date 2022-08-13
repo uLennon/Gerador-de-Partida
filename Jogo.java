@@ -62,13 +62,9 @@ public class Jogo {
 	}
 
 	public void adicionaGol(Time time, int num) {
-		time.getJogadores().get(num).setGol(time.getJogadores().get(num).getGol() + 1);
+		time.getJogadores().get(num).setGols(time.getJogadores().get(num).getGols() + 1);
 		time.getJogadores().get(num).setForca(time.getJogadores().get(num).getForca() + 1);
 		time.setForca(time.getForca()+1);
-	}
-
-	public void adicionaGols(Time time, int num) {
-		time.getJogadores().get(num).setGols(time.getJogadores().get(num).getGols() + 1);
 	}
 
 	public void adicionaJogos(Time casa, Time fora, int quantidade) {
@@ -79,13 +75,11 @@ public class Jogo {
 		}
 	}
 	public int placar(Random rand, Time time, ArrayList<Jogador> jogador) {
-		
 		int probabilidadeDeJogador = rand.nextInt(11);
 		while (probabilidadeDeJogador == 0) {
 				probabilidadeDeJogador = rand.nextInt(11);
 		}
 		adicionaGol(time, probabilidadeDeJogador);
-		adicionaGols(time, probabilidadeDeJogador);
 		jogador.add(time.getJogadores().get(probabilidadeDeJogador));
 		
 		return 1;
@@ -105,5 +99,13 @@ public class Jogo {
 
 	public void setGolFora(int golFora) {
 		this.golFora = golFora;
+	}
+	//Gera as partidas dos times
+	public void jogar(ArrayList<Time> time, int quantidade){
+		for(int i = 0; i < quantidade; i++){
+			for(int j = 0; j < quantidade; j++){
+				this.adicionaJogos(time.get(i),time.get(j),1);
+			}
+		}
 	}
 }

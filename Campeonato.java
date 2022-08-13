@@ -33,9 +33,7 @@ public class Campeonato {
         }
     }
 
-
     public ArrayList<Time> getTime() {
         return time;
     }
-
 }
