@@ -1,4 +1,4 @@
-public class Jogador {
+public class Jogador implements Comparable<Jogador> {
 	private String nome;
 	private int forca;
 	private int gols;
@@ -33,5 +33,20 @@ public class Jogador {
 	}
 	public void setGol(int gol) {
 		this.gol = gol;
+	}
+
+	@Override
+	public int compareTo(Jogador outroJogador) {
+		if(this.gols < outroJogador.getGols())
+			return 1;
+		else if(this.gols > outroJogador.getGols())
+			return -1;
+
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return nome +" - "+ gols;
 	}
 }

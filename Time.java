@@ -41,7 +41,7 @@ public class Time implements Comparable<Time>{
 			System.out.println(jogadores.get(i).getNome());
 		}
 	}
-	// exibe todos jogadores que fizeram gols
+	// exibe jogadores que marcaram gols
 	public void fezGol() {
 		for(int i = 0; i < 11; i++) {
 			if(jogadores.get(i).getGols() > 0) {

@@ -83,7 +83,6 @@ public class Jogo {
 		int probabilidadeDeJogador = rand.nextInt(11);
 		while (probabilidadeDeJogador == 0) {
 				probabilidadeDeJogador = rand.nextInt(11);
-
 		}
 		adicionaGol(time, probabilidadeDeJogador);
 		adicionaGols(time, probabilidadeDeJogador);
@@ -91,6 +90,7 @@ public class Jogo {
 		
 		return 1;
 	}
+
 	public int getGolCasa() {
 		return golCasa;
 	}
@@ -106,6 +106,4 @@ public class Jogo {
 	public void setGolFora(int golFora) {
 		this.golFora = golFora;
 	}
-
-
 }

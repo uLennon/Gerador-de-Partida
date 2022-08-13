@@ -19,15 +19,17 @@ public class Main {
 		time.get(3).gera("/home/zin/IdeaProjects/Simulador/src/d.txt");
 
 		Jogo jogo = new Jogo();
-		jogo.adicionaJogos(time.get(0),time.get(1),2);
-		jogo.adicionaJogos(time.get(0),time.get(2),2);
-		jogo.adicionaJogos(time.get(0),time.get(3),2);
-		jogo.adicionaJogos(time.get(1),time.get(2),2);
-		jogo.adicionaJogos(time.get(1),time.get(3),2);
-		jogo.adicionaJogos(time.get(2),time.get(3),2);
+
+		for(int i = 0; i<4;i++){
+			for(int j=0; j<4;j++){
+				jogo.adicionaJogos(time.get(i),time.get(j),1);
+			}
+		}
 
 		Campeonato camp = new Campeonato(time);
 		camp.tabela();
+		System.out.println("\n");
+		camp.artilharia();
 
 	}
 }
