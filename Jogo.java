@@ -84,6 +84,14 @@ public class Jogo {
 		
 		return 1;
 	}
+	//Gera as partidas dos times
+	public void jogar(ArrayList<Time> time, int quantidade){
+		for(int i = 0; i < quantidade; i++){
+			for(int j = 0; j < quantidade; j++){
+				this.adicionaJogos(time.get(i),time.get(j),1);
+			}
+		}
+	}
 
 	public int getGolCasa() {
 		return golCasa;
@@ -100,12 +108,5 @@ public class Jogo {
 	public void setGolFora(int golFora) {
 		this.golFora = golFora;
 	}
-	//Gera as partidas dos times
-	public void jogar(ArrayList<Time> time, int quantidade){
-		for(int i = 0; i < quantidade; i++){
-			for(int j = 0; j < quantidade; j++){
-				this.adicionaJogos(time.get(i),time.get(j),1);
-			}
-		}
-	}
+
 }
