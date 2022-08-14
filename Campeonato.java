@@ -13,7 +13,7 @@ public class Campeonato {
     // exibe a tabela com a pontuacao de cada time
     public void tabela(){
         Collections.sort(time);
-        System.out.println("Nome          "+"PTS  "+"V " +"D "+"E ");
+        System.out.println("Nome          "+"PTS  "+" V " +" D "+" E ");
         for(Time times: time){
             System.out.println(times);
         }

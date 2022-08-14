@@ -60,7 +60,30 @@ public class Time implements Comparable<Time>{
 		System.out.print("\nV / D / E\n");
 		System.out.print(getVitoria()+"   "+getDerrota()+"   "+getEmpate());
 	}
-	
+
+	@Override
+	public int compareTo(Time outroTime) {
+		if(this.pontuacao>outroTime.getPontuacao()){
+			return -1;
+		}
+		if(this.pontuacao<outroTime.getPontuacao()){
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		// alinha a tabela
+		if(pontuacao<10)
+			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +" "+ this.getDerrota() + " "+this.getEmpate();
+		else if(vitoria>=10)
+			return  nome +"  " + pontuacao +"   "+ this.getVitoria() +"  "+ this.getDerrota() + "  "+this.getEmpate();
+		else if(derrota>=10)
+			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota() + " "+this.getEmpate();
+
+		return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota()+"  " + this.getEmpate();
+	}
 	
 	public String getNome() {
 		return nome;
@@ -126,21 +149,4 @@ public class Time implements Comparable<Time>{
 		this.forca = forca;
 	}
 
-	@Override
-	public int compareTo(Time outroTime) {
-			if(this.pontuacao>outroTime.getPontuacao()){
-				return -1;
-			}
-		if(this.pontuacao<outroTime.getPontuacao()){
-			return 1;
-		}
-		return 0;
-	}
-
-	@Override
-	public String toString() {
-		if(pontuacao<10) return  nome +"  " + pontuacao +"    "+ this.getVitoria() +" "+ this.getDerrota() + " "+this.getEmpate();
-
-		return  nome +"  " + pontuacao +"   "+ this.getVitoria() +" "+ this.getDerrota()+" " + this.getEmpate();
-	}
 }
