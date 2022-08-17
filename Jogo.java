@@ -9,42 +9,55 @@ public class Jogo {
 	private ArrayList<Jogador> jogadorFora;
 
 	public void partida(Time casa, Time fora) {
+		Random rand = new Random();
+		probabilidadeGolsTimes(casa,fora,rand);
+		resultadoPartida(casa,fora);
+		armazenaPartida(casa,fora,rand);
+	}
+	public void  probabilidadeGolsTimes(Time casa, Time fora,Random rand){
 		int chanceDeGol, probabilidadeDeGol = 0;
 		jogadorCasa = new ArrayList<Jogador>();
 		jogadorFora = new ArrayList<Jogador>();
-		Random rand = new Random();
 
 		while (probabilidadeDeGol < 5) {
 			chanceDeGol = rand.nextInt(4);
-			
+
 			if (chanceDeGol == 1) {
 				golCasa += placar(rand, casa, jogadorCasa);
-				
+
 			} else if (chanceDeGol == 0) {
 				golFora += placar(rand, fora, jogadorFora);
 			}
 			probabilidadeDeGol++;
 		}
-		resultadoDaPartida(casa,fora);
-		armazenaPartida(casa,fora,rand);
 	}
-	// define quem ganhou, perdeu ou empatou
-	public void resultadoDaPartida(Time casa, Time fora){
-		if (getGolCasa() > getGolfora()) {
+
+
+	public void timeCasaGanhou(Time casa, Time fora){
 			casa.setVitoria(casa.getVitoria() + 1);
 			fora.setDerrota(fora.getDerrota() + 1);
 			casa.setPontuacao(casa.getPontuacao()+3);
+	}
+	public void timeForaGanhou(Time casa, Time fora){
+		fora.setVitoria(fora.getVitoria() + 1);
+		casa.setDerrota(casa.getDerrota() + 1);
+		fora.setPontuacao(fora.getPontuacao()+3);
+	}
+	public void timesEmpataram(Time casa, Time fora){
+		casa.setEmpate(casa.getEmpate() + 1);
+		fora.setEmpate(fora.getEmpate() + 1);
+		casa.setPontuacao(casa.getPontuacao()+1);
+		fora.setPontuacao(fora.getPontuacao()+1);
+	}
+	// define quem ganhou, perdeu ou empatou
+	public void resultadoPartida(Time casa, Time fora){
+		if(this.golCasa > this.golFora) {
+			timeCasaGanhou(casa,fora);
 
-		} else if (getGolfora() > getGolCasa()) {
-			fora.setVitoria(fora.getVitoria() + 1);
-			casa.setDerrota(casa.getDerrota() + 1);
-			fora.setPontuacao(fora.getPontuacao()+3);
-
+		} else if (this.golFora > this.golCasa) {
+					timeForaGanhou(casa,fora);
 		} else {
-			casa.setEmpate(casa.getEmpate() + 1);
-			fora.setEmpate(fora.getEmpate() + 1);
-			casa.setPontuacao(casa.getPontuacao()+1);
-			fora.setPontuacao(fora.getPontuacao()+1);
+			timesEmpataram(casa,fora);
 		}
 	}
 
