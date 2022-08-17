@@ -32,7 +32,7 @@ public class Campeonato {
             System.out.println(jogador);
         }
     }
-
+    
     public ArrayList<Time> getTime() {
         return time;
     }

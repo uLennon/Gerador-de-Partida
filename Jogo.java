@@ -88,7 +88,8 @@ public class Jogo {
 	public void jogar(ArrayList<Time> time, int quantidade){
 		for(int i = 0; i < quantidade; i++){
 			for(int j = 0; j < quantidade; j++){
-				this.adicionaJogos(time.get(i),time.get(j),1);
+				if(i!=j) // para o mesmo time nao se enfrentar
+					this.adicionaJogos(time.get(i),time.get(j),1);
 			}
 		}
 	}
