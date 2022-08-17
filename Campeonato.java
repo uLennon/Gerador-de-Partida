@@ -20,7 +20,7 @@ public class Campeonato {
     }
     // metedo que armazena e ordena todos os jogadores que fizeram gols do maior para o menor
     public void artilharia(){
-        for(int equipe = 0; equipe < 4; equipe++){
+        for(int equipe = 0; equipe < 10; equipe++){
             for(int jogador = 0; jogador < 11; jogador++){
                 if(time.get(equipe).getJogadores().get(jogador).getGols() > 0){
                     artilheiros.add(time.get(equipe).getJogadores().get(jogador));
