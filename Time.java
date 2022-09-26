@@ -7,10 +7,8 @@ import java.util.ArrayList;
 public class Time implements Comparable<Time>{
 	private String nome;
 	private ArrayList<Jogador> jogadores;
-	private int vitoria, derrota,empate;
+	private int vitoria, derrota,empate, pontuacao, forca, golsFeito, golsSofrido, saldoGols;
 	private ArrayList<Partida> partidas;
-	private int forca;
-	private int pontuacao;
 
 
 	public Time(String nome) {
@@ -19,7 +17,10 @@ public class Time implements Comparable<Time>{
 		this.partidas = new ArrayList<Partida>();
 		this.forca = 11;
 		this.pontuacao = 0;
+		this.golsSofrido = 0;
+		this.golsFeito = 0;
 	}
+
 	public void gera(String n)throws IOException {
 
 		FileInputStream stream = new FileInputStream(n);
@@ -52,7 +53,7 @@ public class Time implements Comparable<Time>{
 	// exibe todas as partidas
 	public void partidasJogadas() {
 		for(int i = 0; i < partidas.size();i++) {
-			partidas.get(i).jogou();
+			partidas.get(i).partidaJogada();
 		}
 	}
 	// exibe as vitorias, derrotas e empates do time
@@ -76,13 +77,17 @@ public class Time implements Comparable<Time>{
 	public String toString() {
 		// alinha a tabela
 		if(pontuacao<10)
-			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +" "+ this.getDerrota() + " "+this.getEmpate();
+			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +" "+ this.getDerrota() + " "+this.getEmpate()+"  "+getSaldoGols()+"";
 		else if(vitoria>=10)
-			return  nome +"  " + pontuacao +"   "+ this.getVitoria() +"  "+ this.getDerrota() + "  "+this.getEmpate();
+			return  nome +"  " + pontuacao +"   "+ this.getVitoria() +"  "+ this.getDerrota() + "  "+this.getEmpate()+"  "+getSaldoGols();
 		else if(derrota>=10)
-			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota() + " "+this.getEmpate();
+			return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota() + " "+this.getEmpate()+"  "+getSaldoGols();
 
-		return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota()+"  " + this.getEmpate();
+		return  nome +"  " + pontuacao +"    "+ this.getVitoria() +"  "+ this.getDerrota()+"  " + this.getEmpate()+"  "+getSaldoGols();
+	}
+
+	public void partidaRodada(int n){
+		partidas.get(n).exibeResultadoPartida();
 	}
 	
 	public String getNome() {
@@ -149,4 +154,23 @@ public class Time implements Comparable<Time>{
 		this.forca = forca;
 	}
 
+	public int getGolsFeito() {
+		return golsFeito;
+	}
+
+	public void setGolsFeito(int golsFeito) {
+		this.golsFeito = golsFeito;
+	}
+
+	public int getGolsSofrido() {
+		return golsSofrido;
+	}
+
+	public void setGolsSofrido(int golsSofrido) {
+		this.golsSofrido = golsSofrido;
+	}
+
+	public int getSaldoGols() {
+		return golsFeito-golsSofrido;
+	}
 }

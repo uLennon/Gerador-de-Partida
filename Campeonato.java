@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Campeonato {
@@ -32,7 +31,7 @@ public class Campeonato {
             System.out.println(jogador);
         }
     }
-    
+
     public ArrayList<Time> getTime() {
         return time;
     }
